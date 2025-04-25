@@ -43,9 +43,7 @@ public class JobRESTController {
 
     @GetMapping("load")
     public String loadData(){
-
         jobService.load();
-
         return "success";
     }
 

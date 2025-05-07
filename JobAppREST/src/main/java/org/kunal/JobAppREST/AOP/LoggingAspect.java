@@ -14,22 +14,22 @@ public class LoggingAspect {
 
     //return type, class-name(entire path).method-name(args)
 
-    @Before("execution(* org.kunal.JobAppREST.service.JobService.*(..))")
+    @Before("execution(* org.kunal.JobAppREST.service.*.*(..))")
     public void logMethodCall(JoinPoint joinPoint) {
         LOGGER.info("Method Called {}", joinPoint.getSignature().getName());
     }
 
-    @After("execution(* org.kunal.JobAppREST.service.JobService.*(..))")
+    @After("execution(* org.kunal.JobAppREST.service.*.*(..))")
     public void logMethodExecuted(JoinPoint joinPoint) {
         LOGGER.info("Method executed {}", joinPoint.getSignature().getName());
     }
 
-    @AfterThrowing("execution(* org.kunal.JobAppREST.service.JobService.*(..))")
+    @AfterThrowing("execution(* org.kunal.JobAppREST.service.*.*(..))")
     public void logMethodCrashed(JoinPoint joinPoint) {
         LOGGER.info("Exception Occurred! {}", joinPoint.getSignature().getName());
     }
 
-    @AfterReturning("execution(* org.kunal.JobAppREST.service.JobService.*(..))")
+    @AfterReturning("execution(* org.kunal.JobAppREST.service.*.*(..))")
     public void logMethodSuccess(JoinPoint joinPoint) {
         LOGGER.info("Success! {}", joinPoint.getSignature().getName());
     }
